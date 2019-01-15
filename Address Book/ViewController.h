@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
+@property (strong) NSMutableArray *names;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *listOfNamesLabel;
 
