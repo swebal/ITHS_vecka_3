@@ -7,38 +7,58 @@
 //
 
 #import "ViewController.h"
+#import "Person.h"
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    dataKey = @"people";
+    self.people = [NSMutableArray new];
     // Do any additional setup after loading the view, typically from a nib.
-    NSUserDefaults *sparadData = [NSUserDefaults standardUserDefaults];
-    NSArray *sparadeNamn = [sparadData objectForKey:@"names"];
-    if (sparadeNamn) {
-        self.names = [[NSMutableArray alloc] initWithArray:sparadeNamn];
-        [self skrivUtAllaNamnen];
-    } else {
-        self.names = [NSMutableArray new]; // Kommer att fyllas med NSString-objekt
+    NSArray *sparadePersoner = [[NSUserDefaults standardUserDefaults] arrayForKey:dataKey];
+    if (sparadePersoner) {
+        // För varje nsdictionary som vi har, måste vi skapa en Person (obj)
+        for (NSDictionary *data in sparadePersoner) {
+            Person *person = [[Person alloc] initWithDictionary:data];
+            [self.people addObject:person];
+        }
     }
+    [self skrivUtAllaPersoner];
+    [self.nameTextField becomeFirstResponder];
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
     NSString *newName = self.nameTextField.text;
     self.nameTextField.text = @"";
-    [_names addObject:newName];
     
-    // Nu vill jag spara alla namnen! - Hämta user defaults!
-    NSUserDefaults *sparadData = [NSUserDefaults standardUserDefaults];
-    [sparadData setObject:_names forKey:@"names"];
+    NSString *newEmail = self.emailTextField.text;
+    self.emailTextField.text = @"";
     
-    [self skrivUtAllaNamnen];
+    [self.nameTextField becomeFirstResponder];
+    
+    Person *newPerson = [Person new];
+    newPerson.name = newName;
+    newPerson.email = newEmail;
+    [_people addObject:newPerson];
+    
+    [self saveData];
+    [self skrivUtAllaPersoner];
 }
 
-- (void)skrivUtAllaNamnen {
+- (void)saveData {
+    NSMutableArray *dictionaryDataOnly = [NSMutableArray new];
+    for (Person *person in _people) {
+        NSDictionary *personData = [person dictionaryFromObject];
+        [dictionaryDataOnly addObject:personData];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:dictionaryDataOnly forKey:dataKey];
+}
+
+- (void)skrivUtAllaPersoner {
     NSMutableString *mutableString = [NSMutableString new];
-    for (NSString *name in _names) {
-        [mutableString appendFormat:@"%@\n", name];
+    for (Person *person in _people) {
+        [mutableString appendFormat:@"%@, %@\n", person.name, person.email];
     }
     self.listOfNamesLabel.text = mutableString;
 }

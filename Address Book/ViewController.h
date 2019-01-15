@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    NSString *dataKey;
+}
 
-@property (strong) NSMutableArray *names;
+// Data
+@property (strong) NSMutableArray *people;
+
+// IBOutlets
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *listOfNamesLabel;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField; // NY
 
 - (IBAction)saveButtonPressed:(id)sender;
 

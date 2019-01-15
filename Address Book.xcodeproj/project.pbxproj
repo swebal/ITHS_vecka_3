@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2844383121EE2464009DEDD0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 2844383021EE2464009DEDD0 /* Person.m */; };
 		28BBD43C21EDD00F00419E57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BBD43B21EDD00F00419E57 /* AppDelegate.m */; };
 		28BBD43F21EDD00F00419E57 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BBD43E21EDD00F00419E57 /* ViewController.m */; };
 		28BBD44221EDD00F00419E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BBD44021EDD00F00419E57 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2844382F21EE2464009DEDD0 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		2844383021EE2464009DEDD0 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		28BBD43721EDD00F00419E57 /* Address Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Address Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28BBD43A21EDD00F00419E57 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		28BBD43B21EDD00F00419E57 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,13 +63,15 @@
 			children = (
 				28BBD43A21EDD00F00419E57 /* AppDelegate.h */,
 				28BBD43B21EDD00F00419E57 /* AppDelegate.m */,
+				28BBD44321EDD01400419E57 /* Assets.xcassets */,
+				28BBD44821EDD01400419E57 /* Info.plist */,
+				28BBD44521EDD01400419E57 /* LaunchScreen.storyboard */,
+				28BBD44921EDD01400419E57 /* main.m */,
+				28BBD44021EDD00F00419E57 /* Main.storyboard */,
+				2844382F21EE2464009DEDD0 /* Person.h */,
+				2844383021EE2464009DEDD0 /* Person.m */,
 				28BBD43D21EDD00F00419E57 /* ViewController.h */,
 				28BBD43E21EDD00F00419E57 /* ViewController.m */,
-				28BBD44021EDD00F00419E57 /* Main.storyboard */,
-				28BBD44321EDD01400419E57 /* Assets.xcassets */,
-				28BBD44521EDD01400419E57 /* LaunchScreen.storyboard */,
-				28BBD44821EDD01400419E57 /* Info.plist */,
-				28BBD44921EDD01400419E57 /* main.m */,
 			);
 			path = "Address Book";
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			files = (
 				28BBD43F21EDD00F00419E57 /* ViewController.m in Sources */,
 				28BBD44A21EDD01400419E57 /* main.m in Sources */,
+				2844383121EE2464009DEDD0 /* Person.m in Sources */,
 				28BBD43C21EDD00F00419E57 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
